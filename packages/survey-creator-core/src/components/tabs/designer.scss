@@ -1,0 +1,128 @@
+@import "../../variables.scss";
+
+svc-tab-designer {
+  width: 100%;
+  height: 100%;
+  background: $background-dim;
+}
+
+.svc-tab-designer {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: scroll;
+  position: static;
+  background: var(--ctr-surface-background-color, $background-dim);
+
+  .svc-text {
+    color: var(--ctr-surface-placeholder-text-title-color, $foreground);
+  }
+}
+
+.svc-tab-designer--with-place-holder .svc-tab-designer_content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.svc-tab-designer--with-place-holder .svc-designer-header {
+  min-width: calcSize(84);
+}
+
+.svc-tab-designer {
+  .svc-designer-header {
+    .sd-container-modern__title {
+      background-color: transparent;
+    }
+  }
+
+  .svc-tab-designer_content {
+    width: 100%;
+  }
+
+  .sd-title {
+    display: flex;
+    &.sd-element__title--hidden,
+    &.svc-element__title--hidden {
+      display: none;
+    }
+  }
+
+  .sd-container-modern {
+    min-width: calcSize(70);
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.sd-container-modern--static {
+      max-width: calcSize(84);
+    }
+
+    &.sd-container-modern--responsive {
+      max-width: initial;
+      padding: 0 calcSize(2);
+    }
+  }
+
+  .sd-question.sd-question--image {
+    width: 100%;
+  }
+
+  .sd-progress,
+  .sd-progress__bar {
+    background-color: transparent;
+  }
+}
+
+.svc-designer-header {
+  border-bottom: 2px solid transparent;
+
+  h3.sd-title {
+    .sv-string-editor {
+      &[aria-placeholder]:empty:before {
+        color: var(--ctr-survey-header-text-title-color-placeholder, $foreground-light);
+      }
+    }
+  }
+
+  .sd-description {
+    color: var(--ctr-survey-header-text-description-color-placeholder, #909090);
+  }
+}
+
+.svc-designer__placeholder-container {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calcSize(2);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.svc-designer-placeholder-page {
+  margin-top: calcSize(2);
+}
+
+.svc-designer-placeholder-page .svc-page__footer {
+  width: calcSize(33);
+  margin: auto;
+}
+
+.svc-designer-placeholder-page .svc-row--ghost {
+  display: none;
+}
+
+.svc-tab-designer__toolbar {
+  position: absolute;
+  bottom: calcSize(0);
+  right: 0;
+  .sv-action-bar {
+    padding: calcSize(1.5);
+    gap: calcSize(1);
+    flex-direction: column;
+  }
+}

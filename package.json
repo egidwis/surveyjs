@@ -1,0 +1,31 @@
+{
+    "name": "survey-creator",
+    "homepage": "https://surveyjs.io/Overview/Survey-Creator",
+    "license": "https://surveyjs.io/Licenses#SurveyCreator",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/surveyjs/survey-creator.git"
+    },
+    "private": true,
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "concurrently \"npm run dev --prefix ../survey-library\" \"http-server -p 7777 --silent\" \"npm run watch:dev --prefix packages/survey-creator-core\" \"npm run watch:prod --prefix packages/survey-creator-core\" \"npm run watch:dev --prefix packages/survey-creator-knockout\" \"npm run watch:prod --prefix packages/survey-creator-knockout\" \"npm run watch:dev --prefix packages/survey-creator-react\" \"npm run watch:prod --prefix packages/survey-creator-react\" ",
+        "lint": "eslint ./packages --quiet && eslint ./testCafe --quiet && eslint ./visualRegressionTests --quiet",
+        "pre-push-check": "npm run lint",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.41.0",
+        "@typescript-eslint/parser": "^5.41.0",
+        "concurrently": "^7",
+        "devextreme-screenshot-comparer": "^2.0.11",
+        "eslint": "^7.32.0",
+        "eslint-cli": "^1.1.1",
+        "eslint-plugin-surveyjs": "file:eslint-surveyjs",
+        "eslint-plugin-react": "^7.25.1",
+        "husky": "^7.0.4",
+        "testcafe": "3.3.0",
+        "get-func-name": "2.0.0",
+        "@types/lodash": "4.14.186"
+    }
+}

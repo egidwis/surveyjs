@@ -1,0 +1,44 @@
+@import "../variables.scss";
+
+.svc-carry-forward-panel-wrapper {
+  width: 100%;
+  container-type: inline-size;
+}
+.svc-carry-forward-panel {
+  box-sizing: border-box;
+  width: 100%;
+  padding: calcSize(4) calcSize(8);
+  border-radius: calcSize(1);
+  background-color: $background-dim-light;
+  text-align: center;
+  font-weight: 400;
+  font-size: calcSize(2);
+  line-height: calcSize(3);
+  color: $foreground-dim-light;
+}
+  
+@container (max-width: #{$sd-panel-medium-min-width}) {
+    .svc-carry-forward-panel {
+      display: none;
+    }
+  }
+  
+@container (max-width: #{$sd-panel-normal-min-width}) {
+    .svc-carry-forward-panel {
+      padding: calcSize(4) calcSize(3);
+    }
+}
+.svc-carry-forward-panel__link {
+  .svc-action-button {
+    padding: 0;
+    border: none;
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "Items": [
+    {
+      "Name": "overview",
+      "Title": "Overview"
+    },
+    {
+      "Name": "get-started",
+      "Title": "Get Started",
+      "Items": [
+        {
+          "Name": "get-started-angular",
+          "Title": "Angular"
+        },
+        {
+          "Name": "get-started-vue",
+          "Title": "Vue"
+        },
+        {
+          "Name": "get-started-react",
+          "Title": "React"
+        },
+        {
+          "Name": "get-started-html-css-javascript",
+          "Title": "HTML/CSS/JavaScript"
+        }
+      ]
+    },
+    {
+      "Name": "property-grid-customization",
+      "Title": "Property Grid Customization"
+    },
+    {
+      "Name": "toolbox-customization",
+      "Title": "Toolbox Customization"
+    },
+    {
+      "Name": "customize-survey-creation-process",
+      "Title": "Survey Customization"
+    },
+    {
+      "Name": "theme-editor",
+      "Title": "Theme Editor"
+    },
+    {
+      "Name": "survey-localization-translate-surveys-to-different-languages",
+      "Title": "Localization & Globalization"
+    },
+    {
+      "Name": "integration-with-backend",
+      "Title": "Integration with Backend"
+    },
+    {
+      "Name": "customize-question-types",
+      "Title": "Customize Question Types"
+    },
+    {
+      "Name": "migration-from-survey-creator-v1",
+      "Title": "Migration from Survey Creator V1",
+      "Items": [
+        {
+          "Name": "Creator-V2-Whats-New",
+          "Title": "What's New in Survey Creator V2"
+        },
+        {
+          "Name": "migration-guide-to-survey-creator-v2",
+          "Title": "Migration to Survey Creator V2"
+        }
+      ]
+    },
+    {
+      "Name": "Troubleshooting",
+      "Title": "Troubleshooting"
+    },
+    {
+      "Name": "End-User-Guide",
+      "Title": "End-User Documentation",
+      "Items": [
+        {
+          "Name": "end-user-guide-user-interface",
+          "Title": "UI Overview"
+        },
+        {
+          "Name": "end-user-guide-skip-logic-in-forms",
+          "Title": "Skip Logic"
+        },
+        {
+          "Name": "end-user-guide-form-display-logic",
+          "Title": "Display Logic"
+        },
+        {
+          "Name": "end-user-guide-branching-logic",
+          "Title": "Branching Logic"
+        },
+        {
+          "Name": "end-user-guide-carry-forward-responses",
+          "Title": "Carry Forward Responses"
+        },
+        {
+          "Name": "end-user-guide-pipe-selected-choices-to-dynamic-matrix",
+          "Title": "Pipe Selected Choices to a Dynamic Matrix"
+        },
+        {
+          "Name": "end-user-guide-add-navigation-elements-to-form",
+          "Title": "Form Navigation"
+        },
+        {
+          "Name": "end-user-guide-prevent-duplicate-forms-submissions",
+          "Title": "Prevent Duplicate Form Submissions"
+        },
+        {
+          "Name": "end-user-guide-how-to-format-user-input-for-single-line-fields",
+          "Title": "Format User Input for Single-Line Fields"
+        },
+        {
+          "Name": "end-user-guide-how-to-calculate-duration-between-dates-within-form",
+          "Title": "Calculate Duration Between Dates"
+        },
+        {
+          "Name": "end-user-guide-how-to-apply-input-mask-to-text-fields",
+          "Title": "Apply Input Masks"
+        },
+        {
+          "Name": "end-user-guide-how-to-add-image-or-video-choice-question-to-form",
+          "Title": "Add Image and Video Choice Questions"
+        },
+        {
+          "Name": "end-user-guide-dynamic-tab-title-format",
+          "Title": "Configure Dynamic Tab Titles in Dynamic Panel"
+        },
+        {
+          "Name": "end-user-guide-how-to-use-column-totals-in-matrix-questions",
+          "Title": "Configure Column Totals in Matrix Questions"
+        },
+        {
+          "Name": "end-user-guide-how-to-use-custom-variables-in-form-calculations",
+          "Title": "Use Custom Variables in Form Calculations"
+        },
+        {
+          "Name": "end-user-guide-how-to-create-transfer-list",
+          "Title": "Create a Transfer List"
+        }
+      ]
+    },
+    {
+      "Name": "BuilderOverview",
+      "Title": "Overview",
+      "IsHidden": true
+    },
+    {
+      "Name": "api",
+      "Title": "Survey Creator API",
+      "Items": [
+        {
+          "Name": "surveycreatormodel",
+          "Title": "SurveyCreatorModel"
+        },
+        {
+          "Name": "ICreatorOptions",
+          "Title": "ICreatorOptions"
+        },
+        {
+          "Name": "questiontoolbox",
+          "Title": "QuestionToolbox"
+        },
+        {
+          "Name": "iquestiontoolboxitem",
+          "Title": "IQuestionToolboxItem"
+        },
+        {
+          "Name": "themetabplugin",
+          "Title": "ThemeTabPlugin"
+        }
+      ]
+    }
+  ]
+}

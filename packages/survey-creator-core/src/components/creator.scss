@@ -1,0 +1,169 @@
+@import "../variables.scss";
+@import "./notifier.scss";
+@import "./popup.scss";
+
+survey-creator,
+.svc-creator {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  -webkit-font-smoothing: antialiased;
+
+  @-moz-document url-prefix() {
+    scrollbar-width: thin;
+    scrollbar-color: $border transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 32px;
+    background-color: var(--ctr-scrollbar-background-color, $border);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: var(--ctr-scrollbar-background-color, $border);
+  }
+
+  .sv-popup .sv-popup__scrolling-content {
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--ctr-scrollbar-background-color, $border);
+    }
+  }
+}
+
+survey-creator {
+  .sv-drag-drop-choices-shortcut {
+    .sv-drag-drop-choices-shortcut__content {
+      background: var(--ctr-survey-radio-button-group-item-background-color-floating, $background);
+
+      .sd-item__decorator {}
+    }
+  }
+}
+
+.svc-creator__area {
+  position: relative;
+
+  @include disableUserSelect;
+}
+
+.svc-creator__content-wrapper {
+  width: 100%;
+  height: 0;
+  flex-grow: 1;
+}
+
+
+
+.svc-creator__content-holder {
+  width: 100%;
+  height: 100%;
+}
+
+.svc-creator-tab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  min-height: $tab-min-height;
+}
+
+.svc-creator__toolbox--right.svc-creator-tab {
+  flex-direction: row-reverse;
+}
+
+.svc-creator-tab__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.svc-plugin-tab__content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.svc-plugin-tab__content-actions {
+  sv-action-bar {
+    padding: 0;
+    height: calc(6 * #{$base-unit});
+    background: $background;
+    border-top: 1px solid $border;
+  }
+}
+
+.svc-creator__banner {
+  width: 100%;
+  line-height: calcSize(4);
+  background-color: var(--ctr-page-banner-background-color, $secondary);
+  text-align: center;
+}
+
+.svc-item__banner {
+  position: relative;
+  max-width: 0;
+  overflow: hidden;
+  height: 100%;
+  background-color: $background;
+  /* Shadow / Medium */
+  border-radius: calcSize(12.5);
+  box-shadow: $shadow-medium;
+  transition: max-width 0.1s ease-in-out, padding 0.2s ease-in-out;
+}
+
+.svc-creator__non-commercial-text {
+  color: var(--ctr-page-banner-text-color, $primary-foreground);
+  @include defaultBold;
+  vertical-align: middle;
+  padding: calcSize(1.5) calcSize(16);
+  display: block;
+
+  a {
+    color: var(--ctr-page-banner-text-color, $primary-foreground);
+  }
+}
+
+.svc-creator--mobile {
+  .svc-creator__non-commercial-text {
+    padding: calcSize(1.5) calcSize(5);
+  }
+}
+
+.sv-drag-drop-ghost {
+  top: calcSize(0.75);
+  width: 100%;
+  height: calcSize(0.5);
+  background: $secondary;
+  position: absolute;
+}
+
+.sv-drag-drop-ghost--vertical {
+  height: 10000px;
+  width: 4px;
+}
+
+.sv-drag-drop-ghost--item-value-bottom {
+  top: initial;
+  bottom: calcSize(-0.5);
+}
+
+.svc-creator--disable-animations {
+  --sjs-creator-transition-duration: 0ms;
+}

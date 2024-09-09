@@ -1,0 +1,284 @@
+@import "../../variables.scss";
+
+$side-bar-enter-duration: var(--svc-side-bar-enter-duration, 500ms);
+$side-bar-leave-duration: var(--svc-side-bar-leave-duration, 500ms);
+
+$cubic-ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+$reverse-cubic-ease-out: cubic-bezier(0.32, 0, 0.67, 0);
+.svc-side-bar__container {
+  display: block;
+  position: relative;
+  font-family: $font-family;
+  min-width: 370px;
+  width: 450px;
+  height: 100%;
+}
+@keyframes sideBarMoveIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--animation-width);
+  }
+}
+@keyframes flyoutSideBarShadowFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+@keyframes flyoutSideBarMoveIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.svc-side-bar--leave,
+.svc-side-bar--enter {
+  min-width: 0;
+  animation-fill-mode: forwards;
+  animation-name: sideBarMoveIn;
+}
+.svc-side-bar--enter {
+  animation-duration: $side-bar-enter-duration;
+  animation-timing-function: $cubic-ease-out;
+}
+.svc-side-bar--leave {
+  animation-duration: $side-bar-leave-duration;
+  animation-direction: reverse;
+  animation-timing-function: $reverse-cubic-ease-out;
+}
+.svc-flyout-side-bar.svc-side-bar--enter,
+.svc-flyout-side-bar.svc-side-bar--leave {
+  animation-name: empty;
+  .svc-side-bar__shadow {
+    animation-fill-mode: forwards;
+    animation-name: flyoutSideBarShadowFadeIn;
+  }
+  .svc-side-bar__wrapper {
+    animation-fill-mode: forwards;
+    animation-name: flyoutSideBarMoveIn;
+  }
+}
+.svc-flyout-side-bar.svc-side-bar--enter {
+  animation-duration: $side-bar-enter-duration;
+  .svc-side-bar__shadow {
+    animation-duration: $side-bar-enter-duration;
+    animation-timing-function: $cubic-ease-out;
+  }
+  .svc-side-bar__wrapper {
+    animation-duration: $side-bar-enter-duration;
+    animation-timing-function: $cubic-ease-out;
+  }
+}
+.svc-flyout-side-bar.svc-side-bar--leave {
+  animation-duration: $side-bar-leave-duration;
+  .svc-side-bar__shadow {
+    animation-duration: $side-bar-leave-duration;
+    animation-timing-function: $reverse-cubic-ease-out;
+    animation-direction: reverse;
+  }
+  .svc-side-bar__wrapper {
+    animation-duration: $side-bar-leave-duration;
+    animation-timing-function: $reverse-cubic-ease-out;
+    animation-direction: reverse;
+  }
+}
+
+.svc-creator--disable-animations {
+  .svc-side-bar--leave,
+  .svc-side-bar--enter {
+    animation: none;
+  }
+}
+
+.svc-side-bar__container .svc-resizer {
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: transparent;
+  cursor: e-resize;
+}
+
+.svc-resizer-west {
+  left: 0;
+}
+
+.svc-resizer-east {
+  right: 0;
+}
+
+.svc-side-bar__container-header {
+  background: var(--ctr-property-grid-header-background-color, $background);
+  box-shadow: inset 0px -2px 0px var(--ctr-property-grid-header-border-color, $primary);
+  // text-align: right;
+  line-height: calcSize(3);
+  display: flex;
+  height: calcSize(8);
+}
+
+.svc-side-bar__container-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: calc(100% - calc(8 * #{$base-unit}));
+  overflow-y: auto;
+  background-color: var(--ctr-property-grid-background-color, $background);
+}
+
+.svc-side-bar__container-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0px calcSize(2) calcSize(3);
+  box-sizing: border-box;
+  background: $background-dim;
+  box-shadow: inset 0px -1px 0px $border;
+}
+
+.svc-side-bar__container-title {
+  display: flex;
+  line-height: calcSize(4.5);
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding: calcSize(1.5) calcSize(2);
+  color: var(--ctr-menu-toolbar-button-text-color, $foreground);
+}
+
+.svc-side-bar__container-actions {
+  width: 100%;
+  box-sizing: border-box;
+  padding: calcSize(1.5) calcSize(1);
+
+  .sv-action-bar {
+    justify-content: flex-end;
+    padding: 0;
+  }
+
+  .sv-action-bar-item {
+    transition: background-color $creator-transition-duration;
+  }
+
+  .sv-action-bar-item:not(.sv-action-bar-item--pressed):enabled {
+    &:focus {
+      background: var(--ctr-menu-toolbar-button-background-color-pressed, $background-dim);
+    }
+
+    &:hover {
+      background: var(--ctr-menu-toolbar-button-background-color-hovered, $background-dim);
+    }
+  }
+
+  .sv-action-bar-item--pressed:not(.sv-action-bar-item--active) {
+    background: var(--ctr-menu-toolbar-button-background-color-pressed, $background-dim);
+  }
+
+  .sv-action-bar-item__title {
+    color: var(--ctr-menu-toolbar-button-text-color, $foreground);
+  }
+
+  .sv-action-bar-item__icon use {
+    fill: var(--ctr-menu-toolbar-button-icon-color, $foreground-light);
+  }
+}
+
+.svc-flex-column.svc-side-bar__wrapper {
+  width: auto;
+  border-left: 1px solid var(--ctr-property-grid-border-color, $border);
+  height: 100%;
+  background-color: var(--ctr-property-grid-form-background-color, $background-dim);
+}
+
+.svc-side-bar {
+  height: 100%;
+}
+
+.svc-flyout-side-bar {
+  width: 0;
+  overflow: visible;
+
+  .svc-side-bar__shadow {
+    background-color: $foreground-light;
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 900;
+  }
+
+  .svc-side-bar__wrapper {
+    border-left: none;
+    z-index: 1000;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    height: 100%;
+    max-width: 100%;
+  }
+}
+
+.sv-action--object-selector {
+  max-width: 70%;
+
+  .sv-action-bar-item {
+    flex-shrink: 1;
+  }
+
+  .sv-action-bar-item__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.svc-full-container.svc-creator__side-bar--left {
+  flex-direction: row-reverse;
+
+  .svc-side-bar__wrapper {
+    left: 0;
+    right: unset;
+  }
+
+  .svc-side-bar__container-header .sv-action-bar {
+    flex-direction: row-reverse;
+  }
+
+  .sv-action--object-selector {
+    justify-content: flex-start;
+    flex: 1;
+    display: flex;
+  }
+
+  .svd-grid-hide .sv-svg-icon {
+    transform: rotate(180deg);
+  }
+}
+
+.svd-grid-hide {
+  margin-inline-end: auto;
+}
+
+.sv-mobile-side-bar {
+  .svc-flyout-side-bar .svc-side-bar__wrapper {
+    width: 100%;
+  }
+
+  .svc-side-bar__container {
+    width: 100%;
+  }
+}
+
+.svc-side-bar {
+  .svc-toolbox {
+    width: 100%;
+  }
+}

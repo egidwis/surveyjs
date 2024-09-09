@@ -1,0 +1,139 @@
+.spg-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  background-color: var(--ctr-editor-background-color, $background);
+  box-sizing: border-box;
+  width: 100%;
+  height: calcSize(6);
+  border: none;
+  box-shadow: inset 0 0 0 var(--ctr-editor-border-width, 1px) var(--ctr-editor-border-color, $border-inside);
+  transition: box-shadow $creator-transition-duration;
+
+  padding: calcSize(1.5) calcSize(2);
+  outline: none;
+  font-size: calcSize(2);
+  font-family: $font-family;
+  color: var(--ctr-editor-content-text-color, $foreground);
+}
+
+.spg-input::placeholder {
+  color: var(--ctr-editor-content-text-color-placeholder, $foreground-light);
+}
+
+.spg-input:focus,
+.spg-input.spg-dropdown:focus,
+.spg-input.spg-dropdown:focus-within,
+.spg-input-container:focus-within {
+  box-shadow: inset 0 0 0 var(--ctr-editor-border-width-focused, 2px) var(--ctr-editor-border-color-focused, $primary);
+}
+
+.spg-input:disabled,
+.spg-input:disabled::placeholder {
+  color: var(--ctr-editor-content-text-color-disabled, $foreground);
+  opacity: var(--ctr-editor-content-text-opacity-disabled, 0.25);
+}
+
+input.spg-input:read-only,
+input.spg-input:read-only::placeholder {
+  color: $foreground;
+  opacity: 0.25;
+}
+
+.spg-input[type="color"] {
+  padding-left: 0;
+  padding-right: 0;
+  min-width: calcSize(8);
+}
+
+.spg-input__edit-button {
+  position: relative;
+  box-sizing: border-box;
+  appearance: none;
+  background: var(--ctr-editor-background-color, $background);
+  border: none;
+  outline: none;
+  width: calcSize(5);
+  height: calcSize(5);
+  padding: calcSize(1);
+  line-height: 0;
+  transition: background $creator-transition-duration, opacity $creator-transition-duration;
+
+  &:focus,
+  &:hover {
+    background: var(--ctr-editor-button-background-color-hovered, $background-dim);
+  }
+
+  &:active {
+    opacity: var(--ctr-editor-button-icon-opacity-pressed, 0.5);
+  }
+
+  &.spg-input__edit-button--disabled,
+  &:disabled {
+    opacity: var(--ctr-editor-button-icon-opacity-disabled, 0.25);
+    background: var(--ctr-editor-background-color, $background);
+  }
+
+  svg {
+    height: 24px;
+    width: 24px;
+    fill: var(--ctr-editor-button-icon-color, $foreground-dim-light);
+  }
+}
+
+.spg-input.spg-input--error {
+  box-shadow: 0 0 0 1px inset var(--ctr-editor-border-color-error, $red);
+}
+
+.spg-input-container {
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+  padding: calcSize(0.5);
+  align-items: center;
+  gap: calcSize(0.5);
+  box-shadow: inset 0 0 0 var(--ctr-editor-border-width, 1px) var(--ctr-editor-border-color, $border-inside);
+}
+
+.spg-input-container--multiline {
+  align-items: end;
+  flex-direction: column;
+  gap: 0;
+  height: auto;
+
+  sv-ng-question-comment {
+    display: flex;
+  }
+
+  .spg-input-container__input {
+    box-sizing: border-box;
+    resize: none;
+  }
+}
+
+.spg-input-container__input {
+  flex-grow: 1;
+  width: 100%;
+  padding: calcSize(1) calcSize(1.5);
+  color: var(--ctr-editor-content-text-color, $foreground);
+  font-size: calcSize(2);
+  font-family: $font-family;
+  outline: none;
+  border: none;
+  line-height: calcSize(3);
+  background-color: transparent;
+
+  &::placeholder {
+    color: var(--ctr-editor-content-text-color-placeholder, $foreground-dim-light);
+  }
+}
+
+.spg-input-container__input:disabled {
+  opacity: var(--ctr-editor-content-text-opacity-disabled, 0.25);
+}
+
+.spg-input-container__buttons-container {
+  display: flex;
+  gap: calcSize(0.5);
+}

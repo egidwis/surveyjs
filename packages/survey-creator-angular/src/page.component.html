@@ -1,0 +1,14 @@
+<div *ngIf="model && adorner && (isGhost === undefined || isGhost === adorner.isGhost)" class="svc-page__content" [class]="adorner.css" [key2click]
+  (click)="adorner.select(adorner, $event)" (dblclick)="adorner.dblclick($event)"  (mouseover)="adorner.hover($event, $event.currentTarget)"
+  (mouseleave)="adorner.hover($event, $event.target)" [id]="adorner.page.id" data-bind="clickBubble: false">
+  <div class="svc-page__content-actions">
+    <sv-action-bar [model]="adorner.actionContainer"></sv-action-bar>
+  </div>
+  <page [model]="model" [survey]="survey"></page>
+  <div *ngIf="adorner.showPlaceholder" class="svc-page__placeholder_frame">
+    <div class="svc-panel__placeholder_frame">
+      <div class="svc-panel__placeholder">{{adorner.placeholderText}}</div>
+    </div>
+  </div>
+  <sv-action-bar [model]="adorner.footerActionsBar"></sv-action-bar>
+</div>

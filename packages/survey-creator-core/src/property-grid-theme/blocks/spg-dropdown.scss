@@ -1,0 +1,17 @@
+.spg-dropdown {
+    border-radius: 0;
+    display: flex;
+    padding-right: calcSize(5.5);
+    line-height: calcSize(3);
+    background-position: right calcSize(1.625) top 50%, 0 0;
+}
+
+.spg-dropdown__filter-string-input {
+    line-height: unset;
+}
+.spg-dropdown_chevron-button {
+    line-height: normal;
+}
+.spg-dropdown-popup:not(.sv-popup--dropdown-overlay) {
+    height: 0;
+}
